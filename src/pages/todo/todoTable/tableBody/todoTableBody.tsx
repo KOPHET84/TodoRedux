@@ -6,11 +6,11 @@ import {
 } from "../../../../features/todo/todoSLice";
 import { AppDispatch } from "../../../../app/store";
 import { useAppSelector, useAppDispatch } from "../../../../app/reduxHooks";
-import { TableCell, TableBody, Button, Checkbox } from "@mui/material";
+import { TableBody, Button, Checkbox } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { selectPagedTodos } from "../../../../features/todo/selectorCustom";
 import { StyledTableRow } from "./tableBody.style";
-
+import { StyledTableCell } from "../todoTable.style";
 export const TodoTableBody = ({
   handleEditTaskClick,
 }: {
@@ -44,7 +44,7 @@ export const TodoTableBody = ({
     <TableBody>
       {pagedTodos.map((todo) => (
         <StyledTableRow key={todo.id} onClick={() => handleEditTaskClick(todo)}>
-          <TableCell>
+          <StyledTableCell>
             <Checkbox
               checked={todo.completed}
               color="primary"
@@ -56,14 +56,14 @@ export const TodoTableBody = ({
             {todo.title.length > 10
               ? todo.title.slice(0, 10) + "..."
               : todo.title}
-          </TableCell>
-          <TableCell>
+          </StyledTableCell>
+          <StyledTableCell>
             {new Date(Number(todo.createdAt)).toLocaleString("en-GB")}
-          </TableCell>
-          <TableCell>
+          </StyledTableCell>
+          <StyledTableCell>
             {todo.completed ? "completed" : "not completed"}
-          </TableCell>
-          <TableCell>
+          </StyledTableCell>
+          <StyledTableCell>
             <Button
               color="inherit"
               onClick={(e) => {
@@ -73,7 +73,7 @@ export const TodoTableBody = ({
             >
               <DeleteIcon />
             </Button>
-          </TableCell>
+          </StyledTableCell>
         </StyledTableRow>
       ))}
     </TableBody>

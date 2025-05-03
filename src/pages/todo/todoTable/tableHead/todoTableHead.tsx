@@ -1,10 +1,11 @@
 import { filterTasks, sortTasks } from "../../../../features/todo/todoSLice"; //
 import { AppDispatch } from "../../../../app/store";
 import { useAppSelector } from "../../../../app/reduxHooks";
-import { TableHead, TableCell, TableRow } from "@mui/material";
+import { TableHead, TableRow } from "@mui/material";
 import { useState } from "react";
 import { ICONSTODO } from "../../todo.const";
 import { HeadTypography, IconStyledButton } from "./todoTableHead.style";
+import { StyledTableCell } from "../todoTable.style";
 
 export const TodoTableHead = ({
   handleChangePages,
@@ -44,18 +45,18 @@ export const TodoTableHead = ({
   return (
     <TableHead>
       <TableRow>
-        <TableCell>
+        <StyledTableCell>
           <HeadTypography>Title task</HeadTypography>
-        </TableCell>
-        <TableCell>
+        </StyledTableCell>
+        <StyledTableCell>
           <HeadTypography>
             <IconStyledButton onClick={() => handleSortChange(todos.sortDate)}>
               {iconsSort[sortIcon]}
             </IconStyledButton>
             createdAt
           </HeadTypography>
-        </TableCell>
-        <TableCell>
+        </StyledTableCell>
+        <StyledTableCell>
           <HeadTypography>
             <IconStyledButton
               onClick={() => handleFilterChange(todos.filterStatus)}
@@ -64,10 +65,10 @@ export const TodoTableHead = ({
             </IconStyledButton>
             Status
           </HeadTypography>
-        </TableCell>
-        <TableCell>
+        </StyledTableCell>
+        <StyledTableCell>
           <HeadTypography>Delete</HeadTypography>
-        </TableCell>
+        </StyledTableCell>
       </TableRow>
     </TableHead>
   );

@@ -18,7 +18,7 @@ export const TodoList = () => {
 
   useEffect(() => {
     const savedTodos: Todos = loadFromLocalStorage();
-    if (savedTodos.todos.length > 0) {
+    if (savedTodos) {
       dispatch(setTasksFrom(savedTodos));
     }
   }, []);

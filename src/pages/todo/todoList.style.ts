@@ -4,9 +4,21 @@ export const theme = createTheme({
     fontFamily: "cursive",
     body1: {
       fontSize: "16px",
+      "@media (max-width: 768px)": {
+        fontFamily: "serif",
+      },
+      "@media (max-width: 480px)": {
+        fontFamily: "serif",
+      },
     },
     button: {
       fontWeight: 600,
+      "@media (max-width: 768px)": {
+        fontFamily: "serif",
+      },
+      "@media (max-width: 480px)": {
+        fontFamily: "serif",
+      },
     },
   },
   palette: {
