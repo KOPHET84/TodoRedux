@@ -36,7 +36,7 @@ To run the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/KOPHET84/TodoRedux
    ```
 
 2. Install dependencies:
@@ -49,7 +49,7 @@ To run the project, follow these steps:
    npm run dev
    ```
 
-The project will be available at `http://localhost:3000`.
+The project will be available at `http://localhost:5173/TodoRedux/`.
 
 ## Features
 
