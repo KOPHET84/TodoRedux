@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a To-Do List app built using Vite, React, TypeScript, and Redux Toolkit. It allows you to add, edit, sort tasks, and save them in localStorage. The tasks are displayed in a table format, making it easier to manage the to-do list.
 
-Currently, two official plugins are available:
+### Live implementation on Github Pages: https://kophet84.github.io/TodoRedux
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `src/`
+  - `app/` — Contains the store, reduxHooks, and utilities.
+    - `store.ts` — Redux Store configuration.
+    - `reduxHooks.ts` — Custom hooks for working with Redux.
+    - `utils.ts` — Helper functions.
+  - `features/todo/` — Main logic for task management.
+    - `todoSlice.ts` — Slice for managing tasks in Redux.
+    - `selectorCustom.ts` — Custom selectors to access state data.
+  - `pages/todo/` — Pages to display tasks.
+    - `todo.const.tsx` — Main constants.
+    - `todoList.tsx` — Task list.
+    - `todoTable/`
+        - `editTodo/`
+            - `editTodo.tsx` — Task editing.
+        - `tableBody/`
+            - `todoTableBody.tsx` — Table body for TODO tasks.
+        - `todoHead/`
+            - `todoTableHead.tsx` — Table header.
+        - `todoTable.tsx` — Task table display.
+    - `todoInput/`
+        - `todoInput.tsx` — Form to add and edit tasks.
+  - `app.tsx` — Main app component.
+  - `main.tsx` — Entry point.
+  - `index.css` — App styles.
 
-## Expanding the ESLint configuration
+## Installation and Running
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To run the project, follow these steps:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. Run the project:
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+The project will be available at `http://localhost:3000`.
+
+## Features
+
+- **Adding tasks**: You can add a new task by entering text in the form.
+- **Editing tasks**: Each task can be edited.
+- **Sorting tasks**: Tasks can be sorted by date or status.
+- **Saving in localStorage**: All data is saved in localStorage to maintain state after page reload.
+- **Display in a table**: Tasks are displayed in a table with sorting options.
+
+## Technologies Used
+
+- **Vite** — A fast build tool for React applications.
+- **React** — A library for building user interfaces.
+- **TypeScript** — Strict typing for better development.
+- **Redux Toolkit** — Convenient and efficient state management.
+- **localStorage** — To store data on the client side.
+
+**Authors**
+---------
+
+* KOPHET84
+
+**License**
+---------
+
+* [License Information]
+
+This README provides a general overview of the project. If you have any questions or need further assistance, feel free to ask!
